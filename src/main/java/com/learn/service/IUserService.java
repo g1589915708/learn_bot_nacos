@@ -1,8 +1,8 @@
 package com.learn.service;
 
-import com.learn.model.ao.UserAo;
-import com.learn.model.vo.UserVo;
+import com.learn.model.ao.TestAo;
+import com.learn.model.vo.TestVo;
 
 public interface IUserService {
-    UserVo findById(UserAo ao);
+    TestVo findById(TestAo ao);
 }

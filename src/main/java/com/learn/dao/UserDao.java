@@ -1,7 +1,7 @@
 package com.learn.dao;
 
 
-import com.learn.model.dto.UserDto;
+import com.learn.model.dto.TestDto;
 import org.apache.ibatis.annotations.*;
 import org.springframework.stereotype.Repository;
 
@@ -31,9 +31,7 @@ public interface UserDao {
      * value 变的名字
      *
      * */
-    @Select("SELECT * FROM test WHERE test_id = #{id}; ")
-
-    @Results(id = "UserDtoResult",value = {
+    @Results(id = "TestDtoResult",value = {
             @Result(id = true, column = "test_id", property = "id"),
             @Result(column = "username", property = "username"),
             @Result(column = "nickname", property = "nickname"),
@@ -43,6 +41,8 @@ public interface UserDao {
             @Result(column = "mobile", property = "mobile"),
             @Result(column = "id_card", property = "idCard")
     })
-//    @ResultMap("UserDtoResult")
-    UserDto findById(String id);
+
+    @Select("SELECT * FROM test WHERE test_id = #{id}; ")
+    @ResultMap("TestDtoResult")
+    TestDto findById(String id);
 }

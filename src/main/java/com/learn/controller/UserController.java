@@ -1,7 +1,7 @@
 package com.learn.controller;
 
-import com.learn.model.ao.UserAo;
-import com.learn.model.vo.UserVo;
+import com.learn.model.ao.TestAo;
+import com.learn.model.vo.TestVo;
 import com.learn.service.IUserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -15,13 +15,13 @@ public class UserController {
 
     private IUserService userService;
     @RequestMapping("/find")
-    public UserVo find(UserAo ao){
+    public TestVo find(TestAo ao){
         System.out.println(ao);
         return userService.findById(ao);
     }
     @RequestMapping("/findById")
-    public UserVo findById(@RequestParam("id")String id){
-        UserAo ao = new UserAo();
+    public TestVo findById(@RequestParam("id")String id){
+        TestAo ao = new TestAo();
         ao.setId(id);
         System.out.println(ao);
         return userService.findById(ao);
