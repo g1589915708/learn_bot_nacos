@@ -31,8 +31,10 @@ public interface UserDao {
      * value 变的名字
      *
      * */
+    @Select("SELECT * FROM test WHERE test_id = #{id}; ")
+
     @Results(id = "UserDtoResult",value = {
-            @Result(id = true, column = "user_id", property = "id"),
+            @Result(id = true, column = "test_id", property = "id"),
             @Result(column = "username", property = "username"),
             @Result(column = "nickname", property = "nickname"),
             @Result(column = "name", property = "name"),
@@ -41,7 +43,6 @@ public interface UserDao {
             @Result(column = "mobile", property = "mobile"),
             @Result(column = "id_card", property = "idCard")
     })
-    @Select("SELECT * FROM user WHERE id = #{id}; ")
-    @ResultMap("UserDtoResult")
+//    @ResultMap("UserDtoResult")
     UserDto findById(String id);
 }
