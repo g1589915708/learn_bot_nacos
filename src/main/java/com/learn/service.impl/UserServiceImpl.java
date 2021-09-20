@@ -1,6 +1,6 @@
 package com.learn.service.impl;
 
-import com.learn.dao.UserDao;
+import com.learn.dao.TestDao;
 import com.learn.model.ao.TestAo;
 import com.learn.model.dto.TestDto;
 import com.learn.model.vo.TestVo;
@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class UserServiceImpl implements IUserService {
     @Autowired
-    private UserDao dao;
+    private TestDao dao;
 
 
     @Override
