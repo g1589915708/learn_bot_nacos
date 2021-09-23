@@ -7,7 +7,7 @@ import java.util.Date;
 
 @Component
 @Data
-public class Account {
+public class AccountDto {
     String id;
     String account;
     String password;
