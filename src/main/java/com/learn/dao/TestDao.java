@@ -43,6 +43,6 @@ public interface TestDao {
     })
 
     @Select("SELECT * FROM test WHERE test_id = #{id}; ")
-    @ResultMap("TestDtoResult")
+//    @ResultMap("TestDtoResult")
     TestDto findById(String id);
 }

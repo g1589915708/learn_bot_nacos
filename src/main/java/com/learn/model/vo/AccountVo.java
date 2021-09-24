@@ -1,4 +1,4 @@
-package com.learn.model.dto;
+package com.learn.model.vo;
 
 import lombok.Data;
 import org.springframework.stereotype.Component;
@@ -7,9 +7,8 @@ import java.util.Date;
 
 @Component
 @Data
-public class AccountDto {
-    String id;
-    UserDto user;
+public class AccountVo {
+    UserVo user;
     String account;
     String password;
     char a_flag;
@@ -18,5 +17,4 @@ public class AccountDto {
     Integer frequency;
     String url;
     String status;
-    Date createDate;
 }
