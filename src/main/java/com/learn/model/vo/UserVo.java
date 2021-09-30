@@ -15,10 +15,7 @@ public class UserVo {
     String sex;
     String birthday;
     String picture;
-
     Integer level;
     Integer parise;
     String background;
-
-    Date createDate;
 }

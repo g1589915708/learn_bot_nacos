@@ -22,6 +22,7 @@ public interface TestDao {
      * one @One 一对一的配置
      * many @Many 一对多的配置
      *
+     * @One fetchType FetchType.LAZY懒加载|FetchType.EAGER及时加载
      * @Many select 要执行的方法
      *
      * @ResultMap 引用已经配置好的@Results

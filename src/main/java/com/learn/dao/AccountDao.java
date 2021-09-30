@@ -3,13 +3,14 @@ package com.learn.dao;
 import com.learn.model.ao.AccountAo;
 import com.learn.model.dto.AccountDto;
 import org.apache.ibatis.annotations.*;
+import org.apache.ibatis.mapping.FetchType;
 import org.springframework.stereotype.Repository;
 
 @Repository
 public interface AccountDao {
     @Results(id = "account",value = {
             @Result(id = true,column = "account_id",property = "id"),
-            @Result(column = "user_id",property = "user.id"),
+            @Result(column = "user_id",property = "user" ,one = @One( select = "com.learn.dao.UserDao.findById",fetchType=FetchType.EAGER)),
             @Result(column = "account",property = "account"),
             @Result(column = "password",property = "password"),
             @Result(column = "a_flag",property = "a_flag"),
@@ -19,7 +20,6 @@ public interface AccountDao {
             @Result(column = "url",property = "url"),
             @Result(column = "status",property = "status"),
             @Result(column = "create_date",property = "createDate"),
-//            @One(resultMap = "",select = "")
     })
     @Select("SELECT a.* FROM account a JOIN user u ON u.user_id = a.user_id WHERE account = #{account} AND platform = #{platform} AND a.user_id = #{user.id}")
     AccountDto findByaccount(AccountAo ao);

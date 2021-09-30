@@ -5,6 +5,7 @@ import com.learn.model.ao.AccountAo;
 import com.learn.model.dto.AccountDto;
 import com.learn.model.dto.UserDto;
 import com.learn.model.vo.AccountVo;
+import com.learn.model.vo.UserVo;
 import com.learn.service.IAccountService;
 import com.learn.tools.CommonConvertBean;
 import com.learn.tools.EncryptionCode;
@@ -26,7 +27,11 @@ public class AccountServiceImpl implements IAccountService {
         /** 查询 */
         dto = dao.findByaccount(ao);
         /** 返回 */
-        if(dto != null) { CommonConvertBean.SourceConvertTarget(dto, vo); }
+        if(dto != null) {
+            vo.setUser(new UserVo());
+            CommonConvertBean.SourceConvertTarget(dto, vo);
+            CommonConvertBean.SourceConvertTarget(dto.getUser(), vo.getUser());
+        }
         return vo;
     }
 
