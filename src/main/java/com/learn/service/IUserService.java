@@ -5,4 +5,8 @@ import com.learn.model.vo.UserVo;
 
 public interface IUserService {
     UserVo findById(UserAo ao);
+
+    UserVo login(UserAo ao);
+
+    Integer register(UserAo ao);
 }

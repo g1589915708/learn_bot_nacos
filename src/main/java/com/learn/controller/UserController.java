@@ -20,4 +20,20 @@ public class UserController {
         System.out.println(vo);
         return vo;
     }
+    @RequestMapping("login")
+    public UserVo login(UserAo ao){
+        UserVo vo = null;
+        System.out.println(ao);
+        vo = userService.login(ao);
+        System.out.println(vo);
+        return vo;
+    }
+    @RequestMapping("register")
+    public Integer register(UserAo ao){
+        Integer vo = null;
+        System.out.println(ao);
+        vo = userService.register(ao);
+        System.out.println(vo);
+        return vo;
+    }
 }
