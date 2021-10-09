@@ -3,6 +3,7 @@ package com.learn.controller;
 import com.learn.model.ao.UserAo;
 import com.learn.model.vo.UserVo;
 import com.learn.service.IUserService;
+import com.learn.tools.ResultCode;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
@@ -13,27 +14,33 @@ public class UserController {
     @Autowired
     private IUserService userService;
     @RequestMapping("find")
-    public UserVo find(UserAo ao){
+    public ResultCode find(UserAo ao){
+        ResultCode resultCode = new ResultCode();
         UserVo vo = null;
         System.out.println(ao);
         vo = userService.findById(ao);
         System.out.println(vo);
-        return vo;
+        ResultCode.addData(resultCode,"account",vo);
+        return resultCode;
     }
     @RequestMapping("login")
-    public UserVo login(UserAo ao){
+    public ResultCode login(UserAo ao){
+        ResultCode resultCode = new ResultCode();
         UserVo vo = null;
         System.out.println(ao);
         vo = userService.login(ao);
         System.out.println(vo);
-        return vo;
+        ResultCode.addData(resultCode,"account",vo);
+        return resultCode;
     }
     @RequestMapping("register")
-    public Integer register(UserAo ao){
+    public ResultCode register(UserAo ao){
+        ResultCode resultCode = new ResultCode();
         Integer vo = null;
         System.out.println(ao);
         vo = userService.register(ao);
         System.out.println(vo);
-        return vo;
+        ResultCode.addData(resultCode,"account",vo);
+        return resultCode;
     }
 }

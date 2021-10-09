@@ -9,10 +9,11 @@ import com.learn.model.vo.UserVo;
 import com.learn.service.IAccountService;
 import com.learn.tools.CommonConvertBean;
 import com.learn.tools.EncryptionCode;
+import com.learn.tools.Pager;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.Date;
+import java.util.*;
 
 @Service
 public class AccountServiceImpl implements IAccountService {
@@ -33,6 +34,28 @@ public class AccountServiceImpl implements IAccountService {
             CommonConvertBean.SourceConvertTarget(dto.getUser(), vo.getUser());
         }
         return vo;
+    }
+
+    @Override
+    public Pager<AccountVo> findAll(Map<String,Object> paramAo) {
+        Pager<AccountVo> pager = null;
+        List<AccountDto> dtoList = null;
+        Map<String,Object> param = new HashMap<>();
+        dtoList = dao.findAll(paramAo);
+        if(dtoList != null && dtoList.size() > 0){
+            pager = new Pager<>();
+            try {
+                pager.setResult(CommonConvertBean.ListSourceConvertTarget(dtoList,AccountVo.class));
+            } catch (IllegalAccessException e) {
+                e.printStackTrace();
+            } catch (InstantiationException e) {
+                e.printStackTrace();
+            }
+            pager.setPage(Integer.valueOf(paramAo.get("page").toString()));
+            pager.setSize(Integer.valueOf(paramAo.get("size").toString()));
+            pager.setTotal(dao.findAllNumber());
+        }
+        return pager;
     }
 
     @Override

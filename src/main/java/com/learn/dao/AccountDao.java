@@ -7,6 +7,7 @@ import org.apache.ibatis.mapping.FetchType;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
+import java.util.Map;
 
 @Repository
 public interface AccountDao {
@@ -25,8 +26,10 @@ public interface AccountDao {
     })
     @Select("SELECT a.* FROM account a JOIN user u ON u.user_id = a.user_id WHERE account = #{account} AND platform = #{platform} AND a.user_id = #{user.id}")
     AccountDto findByaccount(AccountAo ao);
-    @Select("SELECT a.* FROM account a JOIN user u ON u.user_id = a.user_id WHERE a.user_id = #{user.id}")
-    List<AccountDto> findAll(AccountAo ao);
+    @Select("SELECT a.* FROM account a JOIN user u ON u.user_id = a.user_id WHERE a.user_id = #{ao.user.id} LIMIT #{page},#{size}")
+    List<AccountDto> findAll(Map param);
+    @Select("SElECT COUNT(1) FROM account;")
+    Integer findAllNumber();
     @Insert("INSERT INTO `learn_world`.`account`(`user_id`,`account`, `password`, `a_flag`, `platform`, `role`, `frequency`, `url`, `status`, `create_date`) " +
             "VALUES (#{user.id},#{account}, #{password}, #{a_flag}, #{platform}, #{role}, #{frequency}, #{url}, #{status}, #{createDate});")
     Integer insertRecordFull(AccountDto dto);
