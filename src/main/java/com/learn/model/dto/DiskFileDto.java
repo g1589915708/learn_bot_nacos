@@ -6,9 +6,9 @@ import org.springframework.stereotype.Component;
 @Component
 @Data
 public class DiskFileDto {
-    String id;
-    UserDto user;
-    String diskDir;
-    CloudDiskDto cloudDisk;
-    Integer shareType;
+    private String id;
+    private UserDto user;
+    private String diskDir;
+    private CloudDiskDto cloudDisk;
+    private Integer shareType;
 }

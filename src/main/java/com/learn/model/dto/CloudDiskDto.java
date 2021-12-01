@@ -8,12 +8,12 @@ import java.util.Date;
 @Component
 @Data
 public class CloudDiskDto {
-    String id;
-    String cloudDisk;
-    String name;
-    String newname;
-    String type;
-    Integer size;
-    String ipAddr;
-    Date createDate;
+    private String id;
+    private String cloudDisk;
+    private String name;
+    private String newname;
+    private String type;
+    private Integer size;
+    private String ipAddr;
+    private Date createDate;
 }

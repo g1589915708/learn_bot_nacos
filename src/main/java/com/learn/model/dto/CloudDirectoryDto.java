@@ -6,6 +6,6 @@ import org.springframework.stereotype.Component;
 @Component
 @Data
 public class CloudDirectoryDto {
-    String id;
-    String cloudDirectory;
+    private String id;
+    private String cloudDirectory;
 }

@@ -33,7 +33,7 @@ public interface UserDao {
      * */
     @Select("SELECT * FROM user WHERE user_id = #{ao.id};")
     UserDto findById(UserAo ao);
-    @Select("SELECT * FROM user WHERE password = #{ao.password} AND user = #{ao.user}")
+    @Select("SELECT * FROM user WHERE user = #{dto.user}")
     UserDto findByUser(UserAo dto);
     /**
      * 增加

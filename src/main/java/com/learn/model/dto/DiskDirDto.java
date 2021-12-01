@@ -8,9 +8,9 @@ import java.util.Date;
 @Component
 @Data
 public class DiskDirDto {
-    String id;
-    UserDto user;
-    CloudDirectoryDto directoryDto;
-    DiskDirDto diskDirDto;
-    Date createDate;
+    private String id;
+    private UserDto user;
+    private CloudDirectoryDto directoryDto;
+    private DiskDirDto diskDirDto;
+    private Date createDate;
 }

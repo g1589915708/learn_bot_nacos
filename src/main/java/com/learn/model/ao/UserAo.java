@@ -8,20 +8,20 @@ import java.util.Date;
 @Component
 @Data
 public class UserAo {
-    String id;
-    String user;
-    String password;
-    String nickname;
-    String sex;
-    String birthday;
-    String picture;
-    String mobile;
-    String idCard;
-    String name;
-    Integer level;
-    Integer parise;
-    String background;
+    private String id;
+    private String user;
+    private String password;
+    private String nickname;
+    private String sex;
+    private String birthday;
+    private String picture;
+    private String mobile;
+    private String idCard;
+    private String name;
+    private Integer level;
+    private Integer parise;
+    private String background;
 
-    String qq;
-    String vx;
+    private String qq;
+    private String vx;
 }

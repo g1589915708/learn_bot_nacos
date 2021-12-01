@@ -10,15 +10,15 @@ import java.util.Date;
 @Component
 @Data
 public class AccountAo {
-    UserAo user;
-    String account;
-    String password;
-    char a_flag;
-    String platform;
-    String role;
-    Integer frequency;
-    String url;
-    String status;
+    private UserAo user;
+    private String account;
+    private String password;
+    private char a_flag;
+    private String platform;
+    private String role;
+    private Integer frequency;
+    private String url;
+    private String status;
     @DateTimeFormat(pattern = "yyyy-MM-dd HH:mm:ss")
-    Date createDate;
+    private Date createDate;
 }

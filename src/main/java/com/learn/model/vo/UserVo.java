@@ -8,14 +8,14 @@ import java.util.Date;
 @Component
 @Data
 public class UserVo {
-    String id;
-    String user;
-    String password;
-    String nickname;
-    String sex;
-    String birthday;
-    String picture;
-    Integer level;
-    Integer parise;
-    String background;
+    private String id;
+    private String user;
+    private String password;
+    private String nickname;
+    private String sex;
+    private String birthday;
+    private String picture;
+    private Integer level;
+    private Integer parise;
+    private String background;
 }
