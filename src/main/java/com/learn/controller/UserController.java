@@ -12,11 +12,11 @@ import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 @RestController
-@RequestMapping("user")
+@RequestMapping("/user")
 public class UserController {
     @Autowired
     private IUserService userService;
-    @RequestMapping("find")
+    @RequestMapping("/find")
     public ResultCode find(UserAo ao){
         ResultCode resultCode = new ResultCode();
         UserVo vo = null;
@@ -26,7 +26,7 @@ public class UserController {
         ResultCode.addData(resultCode,"account",vo);
         return resultCode;
     }
-    @RequestMapping("login")
+    @RequestMapping("/login")
     public ResultCode login(UserAo ao){
         Subject subject = SecurityUtils.getSubject();
         ResultCode resultCode = new ResultCode();
@@ -40,17 +40,18 @@ public class UserController {
         ResultCode.addData(resultCode,"account",vo);
         return resultCode;
     }
-    @RequestMapping("register")
+    @RequestMapping("/register")
     public ResultCode register(UserAo ao){
         ResultCode resultCode = new ResultCode();
         Integer vo = null;
         System.out.println(ao);
         vo = userService.register(ao);
         System.out.println(vo);
-        ResultCode.addData(resultCode,"account",vo);
+        ResultCode.addData(resultCode,"result","恭喜注册成功!");
         return resultCode;
     }
-    @RequestMapping("noAuthorize")
+
+    @RequestMapping("/noAuthorize")
     public ResultCode noAuthorize(){
         ResultCode resultCode = new ResultCode();
         ResultCode.addData(resultCode,"Tips","您没有权限哦!");

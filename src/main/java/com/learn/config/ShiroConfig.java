@@ -40,21 +40,21 @@ public class ShiroConfig {
         ShiroFilterFactoryBean factoryBean = new ShiroFilterFactoryBean();
         factoryBean.setSecurityManager(securityManager);
         Map<String,String> map = new HashMap<String, String>();
-        //游客不拦截
+        /** 游客不拦截 */
         map.put("/guest/**", "anon");
-        //只允许user权限的访问
+        /** 只允许user权限的访问 */
         map.put("/user/**", "roles[user]");
-        //只允许admin权限的访问
+        /** 只允许admin权限的访问 */
         map.put("/admin/**", "roles[admin]");
-        //登录页面不可以拦截,
+        /** 登录页面不可以拦截, */
         map.put("/login", "anon");
-        /*最后在写剩下的所有全部拦截,否则会造成拦截所有的url*/
+        /** 最后在写剩下的所有全部拦截,否则会造成拦截所有的url */
         map.put("/**", "authc");
         factoryBean.setFilterChainDefinitionMap(map);
         System.out.println("---------------shirofactory创建成功");
-        //拦截到没有登录后跳到哪里去登录
+        /** 拦截到没有登录后跳到哪里去登录 */
         factoryBean.setLoginUrl("/login");
-        //拦截没有权限的用户跳到哪里去
+         /** 拦截没有权限的用户跳到哪里去 */
         factoryBean.setUnauthorizedUrl("/noAuthorize");
         return factoryBean;
     }

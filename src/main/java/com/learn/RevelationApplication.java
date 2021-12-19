@@ -5,13 +5,13 @@ import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.annotation.ComponentScan;
 //import org.springframework.web.servlet.config.annotation.EnableWebMvc;
-//import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
+import org.springframework.cloud.client.discovery.EnableDiscoveryClient;
 
 @SpringBootApplication
 @MapperScan("com.learn.dao")
 //@ComponentScan(value="com.learn.*")
 //@EnableWebMvc
-//@EnableDiscoveryClient
+@EnableDiscoveryClient
 public class RevelationApplication {
 
     public static void main(String[] args) {

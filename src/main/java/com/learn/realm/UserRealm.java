@@ -29,11 +29,18 @@ public class UserRealm extends AuthorizingRealm {
         Subject subject = SecurityUtils.getSubject();
         UserDto account = (UserDto) subject.getPrincipal();
         //设置角色
-        Set<String> rolesset = new HashSet<>();
-        rolesset.add(account.getRole().get(0).getRole());
-        SimpleAuthorizationInfo info = new SimpleAuthorizationInfo(rolesset);
+        Set<String> rolesSet = new HashSet<>();
+        Set<String> realmSet = new HashSet<>();
+        for(int i = 0; i < account.getRole().size(); i++) {
+            rolesSet.add(account.getRole().get(i).getRole());
+            for (int j = 0; j < account.getRole().get(i).getRealm().size(); j++){
+                realmSet.add(account.getRole().get(i).getRealm().get(j).getRealm());
+            }
+        }
+        SimpleAuthorizationInfo info = new SimpleAuthorizationInfo(rolesSet);
         //设置权限
-        info.addStringPermission(account.getRole().get(0).getRealm().get(0).getRealm());
+        //info.addStringPermission(account.getRole().get(0).getRealm().get(0).getRealm());
+        info.addStringPermissions(realmSet);
         return info;
     }
 
